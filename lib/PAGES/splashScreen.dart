@@ -2,6 +2,7 @@
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,6 +27,13 @@ class _SplashScreenState extends State<SplashScreen>
     _animation = Tween<double>(begin: 1.0, end: 0.8).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOut),
     );
+
+    // Add status listener to check when animation completes
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Get.toNamed('/home');
+      }
+    });
 
     _controller.forward(); // Start the animation
   }
@@ -80,7 +88,7 @@ class _SplashScreenState extends State<SplashScreen>
                     ),
                   ),
                   ColorizeAnimatedText(
-                    "ARISING",
+                    "JOSIAH'S ARISING",
                     textStyle: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 30,

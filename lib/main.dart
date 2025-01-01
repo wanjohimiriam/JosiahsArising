@@ -1,25 +1,26 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:josiah_arising/PAGES/home.dart';
 import 'package:josiah_arising/PAGES/splashScreen.dart';
 
 void main() {
-  runApp(const MyApp());
-}
+  runApp(
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    GetMaterialApp(
+      title: 'Josiah Arising',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         //colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-       useMaterial3: true,
+        useMaterial3: true,
       ),
-      home: SplashScreen(),
-    );
-  }
+      initialRoute: '/home',
+      getPages: [
+        GetPage(name: '/', page: () => SplashScreen()),
+        GetPage(name: '/home', page: () => HomePageNavBar())
+      ],
+  )
+  );
 }
 
