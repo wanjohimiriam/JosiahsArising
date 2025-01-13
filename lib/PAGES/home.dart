@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:josiah_arising/PAGES/bible.dart';
 import 'package:josiah_arising/PAGES/devotional.dart';
 import 'package:josiah_arising/PAGES/hymns.dart';
 import 'package:josiah_arising/PAGES/notes.dart';
@@ -35,6 +36,7 @@ class Note {
   Note({required this.title, required this.date, required this.preview});
 }
 
+
 // Devotionals Page
 
 
@@ -58,12 +60,14 @@ class _HomePageNavBarState extends State<HomePageNavBar> {
   final List<Widget> _pages = [
     DevotionalsPage(),
     HymnsPage(),
+    BiblePage(),
     NotesPage(),
   ];
 
   final List<String> _titles = [
     'DEVOTIONALS',
     'HYMNS',
+    'BIBLE',
     'NOTES',
   ];
 
@@ -104,6 +108,10 @@ class _HomePageNavBarState extends State<HomePageNavBar> {
           BottomNavigationBarItem(
             icon: Icon(Icons.music_note),
             label: 'Hymns',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),  // Bible icon
+            label: 'Bible',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.note),
